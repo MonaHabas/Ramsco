@@ -30,4 +30,8 @@ class App extends Controller
         }
         return get_the_title();
     }
+
+    public function siteSocial() {
+        return get_field('social_networks', 'option');
+    }
 }
