@@ -179,7 +179,7 @@ if( function_exists('acf_add_local_field_group') ):
 			),
 			array (
 				'key' => 'field_5a818d5a8a2da',
-				'label' => 'Select The icon',
+				'label' => 'Select The Network',
 				'name' => 'social_networks',
 				'type' => 'repeater',
 				'instructions' => '',
@@ -197,28 +197,9 @@ if( function_exists('acf_add_local_field_group') ):
 				'button_label' => 'Add Network',
 				'sub_fields' => array(
 					array(
-						'key' => 'field_5a81933281626',
+						'key' => 'field_5a81934881627',
 						'label' => 'Name',
 						'name' => 'icon_name',
-						'type' => 'text',
-						'instructions' => '',
-						'required' => 0,
-						'conditional_logic' => 0,
-						'wrapper' => array(
-							'width' => '50',
-							'class' => '',
-							'id' => '',
-						),
-						'default_value' => '',
-						'placeholder' => '',
-						'prepend' => '',
-						'append' => '',
-						'maxlength' => '',
-					),
-					array(
-						'key' => 'field_5a81934881627',
-						'label' => 'Image',
-						'name' => 'icon_image',
 						'type' => 'radio',
 						'instructions' => '',
 						'required' => 0,
@@ -229,11 +210,10 @@ if( function_exists('acf_add_local_field_group') ):
 							'id' => '',
 						),
 						'choices' => array(
-							'Facebook' => '<i class="fa fa-facebook fa-fw"></i>',
-							'Twitter' => '<i class="fa fa-twitter fa-fw"></i>',
-							'LinkedIn' => '<i class="fa fa-linkedin fa-fw"></i>',
-							'Youtube' => '<i class="fa fa-youtube fa-fw"></i>',
-							'Instgram' => '<i class="fa fa-instagram fa-fw"></i>',
+							'Facebook' => 'Facebook',
+							'Twitter' => 'Twitter',
+							'Youtube' => 'Youtube',
+							'Instgram' => 'Instgram',
 						),
 						'allow_null' => 0,
 						'other_choice' => 0,
@@ -241,6 +221,25 @@ if( function_exists('acf_add_local_field_group') ):
 						'default_value' => '',
 						'layout' => 'horizontal',
 						'return_format' => 'label',
+                    ),
+                    array(
+						'key' => 'field_5a81933281626',
+						'label' => 'Link',
+						'name' => 'icon_link',
+						'type' => 'text',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '50',
+							'class' => '',
+							'id' => '',
+                        ),
+						'default_value' => '',
+						'placeholder' => '',
+						'prepend' => '',
+						'append' => '',
+						'maxlength' => '',
 					),
 				),
             ),   
@@ -455,3 +454,10 @@ if( function_exists('acf_add_local_field_group') ):
 	));
 
 endif;
+
+
+// ========================================
+// Action => Font Awesome
+add_action( 'admin_enqueue_scripts', function() {
+  wp_enqueue_style('fontawesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+}, 100);

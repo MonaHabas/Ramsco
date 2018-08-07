@@ -10,15 +10,19 @@
         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
       @endif
 
-      {{-- @if($site_social)
+      @if($site_social)
         <div class="site-social text-center ml-auto mr-3 mb-3 pl-2">
           @foreach ($site_social as $social)
-          <a class="text-white" href="{{ $social['icon_name'] }}" title="{{ _e('Social Media', 'ramsco') }}" target="_blank">
-            {!! $social['icon_image'] !!}
+          <a class="" href="{{ $social['icon_link'] }}" title="{{ _e('Social Media', 'ramsco') }}" target="_blank">
+            @if($social['icon_name'] == 'Facebook') <i class="fa fa-facebook fa-fw"></i>
+            @elseif($social['icon_name'] == 'Twitter') <i class="fa fa-twitter fa-fw"></i>
+            @elseif($social['icon_name'] == 'Youtube') <i class="fa fa-youtube fa-fw"></i>
+            @elseif($social['icon_name'] == 'Instgram') <i class="fa fa-instagram fa-fw"></i>
+            @endif
           </a>
           @endforeach
         </div>
-      @endif --}}
+      @endif
 
     </nav>
   </div>
