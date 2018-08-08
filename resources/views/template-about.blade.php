@@ -7,15 +7,21 @@
   @while(have_posts()) @php(the_post())
 
     <section class="page-content">
-      <div class="row">
 
-        <div class="col-12">
-          <div class="content">
-            @php(the_content())
-          </div>
-        </div>{{-- End Content Col --}}
+      <div class="text-center">
+        @php( $mission_desc = get_field('mission_descreption'))
+        @if( $mission_desc )
+          <h2>{{ _e('Mission','ramsco') }}</h2>
+          <p>{{ $mission_desc }}</p>
+        @endif
 
-      </div>{{-- End Row --}}
+        @php($vission_desc = get_field('vision_descreption'))
+        @if( $mission_desc )
+          <h2>{{ _e('Vission','ramsco') }}</h2>
+          <p>{{ $vission_desc }}</p>
+        @endif
+      </div>{{-- End Content Col --}}
+
     </section>{{-- End Page Content --}}
   @endwhile
 @endsection

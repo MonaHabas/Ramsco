@@ -90,7 +90,14 @@ Container::getInstance()
             'view' => require dirname(__DIR__).'/config/view.php',
             'framework' => require dirname(__DIR__).'/framework/index.php',
         ]);
-    }, true);
+		}, true);
+
+
+// ========================================
+// Action => Font Awesome
+add_action( 'admin_enqueue_scripts', function() {
+  wp_enqueue_style('fontawesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+}, 100);
 
 
 // ==============================================
@@ -531,7 +538,7 @@ function product_module_registration() {
         'singular_name' => _x('Product', 'Post Type Singular Name'),
         'menu_name' => __('Product'),
         'parent_item_colon' => __('Parent Project:'),
-        'all_items' => __('All Product'),
+        'all_items' => __('All Products'),
         'view_item' => __('View Product'),
         'add_new_item' => __('Add New Product'),
         'add_new' => __('Add New'),
@@ -566,8 +573,153 @@ function product_module_registration() {
 add_action('init', 'product_module_registration', 0);
 
 
-// ========================================
-// Action => Font Awesome
-add_action( 'admin_enqueue_scripts', function() {
-  wp_enqueue_style('fontawesome', 'http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-}, 100);
+// ===========================================
+// CustomField => About Template
+if( function_exists('acf_add_local_field_group') ):
+
+acf_add_local_field_group(array (
+	'key' => 'group_56759c1fadffc',
+	'title' => 'About Us Fields',
+	'fields' => array (
+		array (
+			'message' => 'You can from here add a descreption for Mission',
+			'esc_html' => 0,
+			'new_lines' => 'wpautop',
+			'key' => 'field_5843fd7cce09d44432',
+			'label' => 'Mission',
+			'name' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+		),
+		array (
+			'key' => 'field_56759e072d3b645',
+			'label' => 'Mission Descreption',
+			'name' => 'mission_descreption',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+					'width' => 100,
+					'class' => '',
+					'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => '',
+			'new_lines' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+		array (
+			'message' => 'You can from here add a descreption for vision',
+			'esc_html' => 0,
+			'new_lines' => 'wpautop',
+			'key' => 'field_5843fd7cce09d444sd',
+			'label' => 'Vission',
+			'name' => '',
+			'type' => 'message',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+				'width' => '',
+				'class' => '',
+				'id' => '',
+			),
+		),
+		array (
+			'key' => 'field_56759e072d3b6bb',
+			'label' => 'Vision Descreption',
+			'name' => 'vision_descreption',
+			'type' => 'textarea',
+			'instructions' => '',
+			'required' => 0,
+			'conditional_logic' => 0,
+			'wrapper' => array (
+					'width' => 100,
+					'class' => '',
+					'id' => '',
+			),
+			'default_value' => '',
+			'placeholder' => '',
+			'maxlength' => '',
+			'rows' => '',
+			'new_lines' => '',
+			'readonly' => 0,
+			'disabled' => 0,
+		),
+	),
+	'location' => array (
+		array (
+			array (
+				'param' => 'page_template',
+				'operator' => '==',
+				'value' => 'views/template-about.blade.php',
+			),
+		),
+	),
+	'menu_order' => 0,
+	'position' => 'normal',
+	'style' => 'default',
+	'label_placement' => 'top',
+	'instruction_placement' => 'label',
+	'hide_on_screen' => '',
+	'active' => 1,
+	'description' => '',
+));
+
+endif;
+
+
+// ===========================================
+// Post Type => Products
+// Register Custom Post Type
+function gallery_module_registration() {
+
+    $labels = array(
+        'name' => _x('Gallery', 'Post Type General Name'),
+        'singular_name' => _x('Gallery', 'Post Type Singular Name'),
+        'menu_name' => __('Gallery'),
+        'parent_item_colon' => __('Parent Project:'),
+        'all_items' => __('All Galleries'),
+        'view_item' => __('View Gallery'),
+        'add_new_item' => __('Add New Gallery'),
+        'add_new' => __('Add New'),
+        'edit_item' => __('Edit Item'),
+        'update_item' => __('Update Item'),
+        'search_items' => __('Search Item'),
+        'not_found' => __('Not found', 'ramsco_theme'),
+        'not_found_in_trash' => __('Not found in Trash'),
+    );
+    $args = array(
+        'label' => __('gallery'),
+        'description' => __('Gallery Module'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields'),
+        'taxonomies' => array('post_tag', 'category'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 8,
+        'menu_icon' => 'dashicons-format-gallery',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+    );
+    register_post_type('gallery', $args);
+}
+add_action('init', 'gallery_module_registration', 0);
