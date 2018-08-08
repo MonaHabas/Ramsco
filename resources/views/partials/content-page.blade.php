@@ -5,12 +5,9 @@
       <span> @php(the_title())</span>
     </div>
 
-    <div class="col-md-8 col-12">
+    <div class="col-12">
       <div class="content">@php(the_content())</div>
     </div>{{-- End Content Col --}}
 
-    <div class="col-md-4 col-12">
-      @php (dynamic_sidebar( 'sidebar-pages' ))
-    </div>{{-- End Twitter Col --}}
   </div>{{-- End Row --}}
 </section>{{-- End Page Content --}}

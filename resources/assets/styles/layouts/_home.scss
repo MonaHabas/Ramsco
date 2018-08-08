@@ -1,10 +1,9 @@
 .home-slider {
   .carousel-item {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
     width: 100%;
     height: 150px;
+
+    @extend .background-img;
 
     @include media-breakpoint-up(md) {
       height: 350px;
@@ -21,5 +20,25 @@
         float: left;
       }
     }
+  }
+}
+
+.about-section {
+  .content {
+    @include media-breakpoint-up(md) {
+      width: 50%;
+      justify-content: end;
+    }
+  }
+}
+
+.home-background {
+  width: 100%;
+  height: 250px;
+
+  @extend .background-img;
+
+  @include media-breakpoint-up(md) {
+    height: 350px;
   }
 }
