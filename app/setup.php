@@ -126,3 +126,9 @@ add_action('after_setup_theme', function () {
         return "<?= " . __NAMESPACE__ . "\\asset_path({$asset}); ?>";
     });
 });
+
+
+/**
+ * Add Image Sizes
+ */
+add_image_size('latest-product', 150, 150, false);

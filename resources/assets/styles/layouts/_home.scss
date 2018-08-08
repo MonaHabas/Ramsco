@@ -11,3 +11,15 @@
     }
   }
 }
+
+.latest-product {
+  .archive-link {
+    a {
+      float: right;
+
+      [dir=rtl] & {
+        float: left;
+      }
+    }
+  }
+}
