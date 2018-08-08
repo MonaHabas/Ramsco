@@ -565,6 +565,7 @@ function product_module_registration() {
 }
 add_action('init', 'product_module_registration', 0);
 
+
 // ========================================
 // Action => Font Awesome
 add_action( 'admin_enqueue_scripts', function() {
