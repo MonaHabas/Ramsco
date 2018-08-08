@@ -127,7 +127,7 @@ if( function_exists('acf_add_local_field_group') ):
 				'label' => 'Main Website Logo',
 				'name' => 'website_logo',
 				'type' => 'image',
-				'instructions' => 'this image we will used it in all website like (header, login screen, sharing, .... )',
+				'instructions' => 'this image we will used it as a logo in all website like (header, sharing, .... )',
 				'required' => 0,
 				'conditional_logic' => 0,
 				'wrapper' => array (
@@ -289,7 +289,7 @@ if( function_exists('acf_add_local_field_group') ):
                     array (
                         'key' => 'field_56759dd42d3b5',
                         'label' => 'The title',
-                        'name' => 'the_title',
+                        'name' => 'title',
                         'type' => 'text',
                         'instructions' => '',
                         'required' => 0,
@@ -310,7 +310,7 @@ if( function_exists('acf_add_local_field_group') ):
                     array (
                         'key' => 'field_56759e072d3b6',
                         'label' => 'The content',
-                        'name' => 'the_content',
+                        'name' => 'content',
                         'type' => 'textarea',
                         'instructions' => '',
                         'required' => 0,
@@ -455,6 +455,50 @@ if( function_exists('acf_add_local_field_group') ):
 
 endif;
 
+
+// ===========================================
+// Post Type => Products
+// Register Custom Post Type
+function product_module_registration() {
+
+    $labels = array(
+        'name' => _x('Product', 'Post Type General Name'),
+        'singular_name' => _x('Product', 'Post Type Singular Name'),
+        'menu_name' => __('Product'),
+        'parent_item_colon' => __('Parent Project:'),
+        'all_items' => __('All Product'),
+        'view_item' => __('View Product'),
+        'add_new_item' => __('Add New Product'),
+        'add_new' => __('Add New'),
+        'edit_item' => __('Edit Item'),
+        'update_item' => __('Update Item'),
+        'search_items' => __('Search Item'),
+        'not_found' => __('Not found', 'ramsco_theme'),
+        'not_found_in_trash' => __('Not found in Trash'),
+    );
+    $args = array(
+        'label' => __('product'),
+        'description' => __('Product Module'),
+        'labels' => $labels,
+        'supports' => array('title', 'editor', 'excerpt', 'author', 'thumbnail', 'revisions', 'custom-fields'),
+        'taxonomies' => array('post_tag', 'category'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_admin_bar' => true,
+        'menu_position' => 8,
+        'menu_icon' => 'dashicons-products',
+        'can_export' => true,
+        'has_archive' => true,
+        'exclude_from_search' => false,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+    );
+    register_post_type('product', $args);
+}
+add_action('init', 'product_module_registration', 0);
 
 // ========================================
 // Action => Font Awesome
