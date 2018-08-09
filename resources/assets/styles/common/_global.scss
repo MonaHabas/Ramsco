@@ -1,5 +1,38 @@
+a {
+  &:hover {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &:active {
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+  }
+}
+
 .background-img {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.site-social {
+  a {
+    color: $brand-abbey;
+  }
+}
+
+.custom-border {
+  position: relative;
+  height: 1px;
+  background-color: $brand-abbey;
+  margin: 40px 0;
+
+  img {
+    position: absolute;
+    top: -35px;
+    left: 42%;
+    right: 50%;
+  }
 }

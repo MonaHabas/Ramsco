@@ -7,7 +7,7 @@
         <img src="{{ $border_img }}" />
       </div><!-- End Border -->
 
-      <div class="content offset-6">
+      <div class="content">
 
         <div class="title">
           <span>{{ _e('about','ramsco') }}</span>

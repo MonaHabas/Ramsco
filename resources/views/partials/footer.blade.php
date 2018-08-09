@@ -4,9 +4,9 @@
 @endif
 <!-- End Background Image -->
 
-<footer class="mt-5">
+<footer class="pt-5">
   <div class="container">
-    <div class="row">
+    <div class="row pb-5">
 
       @if (has_nav_menu('footer_navigation'))
         <div class="mb-3 mb-sm-0 px-3 px-sm-0 col-12 col-sm-3 col-md-4">
@@ -28,9 +28,9 @@
 
     </div>
   </div>
-  <section class="copyright">
+  <section class="copyright pt-3">
     <div class="container">
-      <div class="row justify-content-between align-items-center">
+      <div class="row align-items-center">
 
         <p class="copy-right">{{ get_field('copyright','option') }}</p>
 

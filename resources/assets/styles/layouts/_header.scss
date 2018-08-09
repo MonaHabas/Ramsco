@@ -5,3 +5,26 @@
 .banner .nav a {
   @extend .nav-link;
 }
+
+header {
+  .navbar-brand {
+    width: 90px;
+    height: 70px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .menu-top-menu-container {
+    .menu-item a {
+      color: $brand-abbey;
+    }
+
+    .current-menu-item a {
+      color: $brand-primary;
+    }
+  }
+}

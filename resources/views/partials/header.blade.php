@@ -12,7 +12,7 @@
         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
       @endif
       @if($site_social)
-        <div class="site-social text-center ml-auto mr-3 mb-3 pl-2">
+        <div class="site-social text-center">
           @foreach ($site_social as $social)
           <a class="" href="{{ $social['icon_link'] }}" title="{{ _e('Social Media', 'ramsco') }}" target="_blank">
             @if($social['icon_name'] == 'Facebook') <i class="fa fa-facebook fa-fw"></i>

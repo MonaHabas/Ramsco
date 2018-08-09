@@ -25,9 +25,23 @@
 
 .about-section {
   .content {
+    margin: auto 6%;
+
     @include media-breakpoint-up(md) {
-      width: 50%;
-      justify-content: end;
+      margin: auto  0 auto 50%;
+    }
+
+    .title {
+      span {
+        text-decoration: underline;
+        text-transform: uppercase;
+        color: $brand-primary;
+      }
+
+      img {
+        width: 75px;
+        height: auto;
+      }
     }
   }
 }

@@ -1,0 +1,17 @@
+footer {
+  background-color: $brand-primary;
+  color: $brand-white;
+
+  .copyright {
+    background-color: $brand-white;
+    color: $brand-primary;
+  }
+
+  a {
+    color: $brand-white;
+
+    &:hover {
+      color: $brand-white;
+    }
+  }
+}
